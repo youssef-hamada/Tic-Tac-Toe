@@ -9,6 +9,7 @@ export class BoardComponent implements OnInit {
   squares!:any[];
   xIsNext:boolean | undefined;
   winner!:string | null;
+  draw!:boolean;
 
   constructor() { }
 
@@ -20,6 +21,7 @@ export class BoardComponent implements OnInit {
     this.squares = Array(9).fill(null)
     this.winner = null
     this.xIsNext = true
+    this.draw = false;
   }
 
 
@@ -36,6 +38,8 @@ export class BoardComponent implements OnInit {
     }
 
     this.winner = this.calWinner();
+    this.draw = this.calWinner()
+    
   }
 
   calWinner(){
@@ -54,6 +58,8 @@ export class BoardComponent implements OnInit {
       const [x,y,z] = lines[i]
       if(this.squares[x] && this.squares[x] === this.squares[y] && this.squares[x] == this.squares[z] ){
         return this.squares[x];
+      }else if(!this.squares.includes(null)){
+        return true;
       }
     }
   }

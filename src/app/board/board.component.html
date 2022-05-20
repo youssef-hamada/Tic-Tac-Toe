@@ -12,9 +12,13 @@
 
             <div class="col-4 ">
 
-                <h2 *ngIf="winner" class=" bg-primary text-white text-center tot">
+                <h2 *ngIf="winner"   class=" bg-primary text-white text-center tot">
                     player {{ winner }} Won the game
                 </h2>
+                <h2 #draw *ngIf="draw" class=" bg-primary text-white text-center tot">
+                    There is a Draw
+                </h2>
+                
 
 
                 <div class="board">
